@@ -1,0 +1,15 @@
+.cantidadTotal{
+    position: absolute;
+    border: solid white 0.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 250px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    height: 21px;
+}
+.cartWidget{
+    position: relative;
+    padding: 10px;
+}   

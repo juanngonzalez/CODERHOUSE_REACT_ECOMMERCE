@@ -1,0 +1,60 @@
+
+@media only screen and (min-width: 360px){
+    .responsiveCard{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+@media only screen and (min-width: 720px){
+    .responsiveCard{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media only screen and (min-width: 1024px){
+    .responsiveCard{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap:1em;
+    }
+}
+.totalCarrito{
+    border: black 2px solid;
+    width: 200px;
+    height: 35px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.contenedorFormulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px; 
+    padding: 20px;
+}
+.contenedorFormulario form{
+    border: rgba(63, 61, 61, 0.801) solid 1px;
+    margin: 10px;
+    background-color: white;
+    box-shadow: -10px 10px 30px 0px;
+    border-radius: 10px;
+    background: linear-gradient(to right, #1aaa9eb0, #3bbe6d36);
+}
+.contenedorFormulario form input{
+    width: 300px;
+    margin: 15px;
+    border: rgba(0, 0, 0, 0.753) solid 1px;
+    padding: 5px;
+}
+.centrado{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    margin-bottom: 30px;
+}
+
+

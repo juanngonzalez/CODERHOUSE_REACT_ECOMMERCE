@@ -1,0 +1,21 @@
+div Button{
+    margin: 5px;
+}
+.agregar{
+    background-color: rgba(7, 175, 7, 0.774);
+    border: rgba(7, 175, 7, 0.774);
+}
+
+.agregar:hover{
+    background-color: green;
+    border: green;
+}
+
+.eliminar{
+    background-color: rgba(248, 28, 28, 0.89);
+    border:rgba(248, 28, 28, 0.89) ;
+}
+.eliminar:hover{
+    background-color: red;
+    border:red ;
+}

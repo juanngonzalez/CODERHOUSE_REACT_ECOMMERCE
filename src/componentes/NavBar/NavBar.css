@@ -1,0 +1,10 @@
+.linkNav{
+    text-decoration: none;
+    text-transform: none;
+    margin: 10px;
+    color: white;
+
+}
+.linkNav:hover{
+    color:rgba(82, 82, 240, 0.719)
+}
