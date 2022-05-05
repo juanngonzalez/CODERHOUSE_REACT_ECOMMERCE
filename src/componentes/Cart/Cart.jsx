@@ -1,7 +1,7 @@
 import { useCartContext } from "../../context/ContextCart"
 import { Card,Button } from 'react-bootstrap'
 import { Link } from "react-router-dom"
-import { addDoc, collection, doc, documentId, getDoc, getDocs, getFirestore, updateDoc, writeBatch } from 'firebase/firestore'
+import { addDoc, collection, doc, query, where, documentId, getDoc, getDocs, getFirestore, updateDoc, writeBatch } from 'firebase/firestore'
 import { useState } from "react"
 import '../../componentes/ItemListContainer/Item/Item.css'
 import Form from "../Form/Form"
@@ -9,15 +9,15 @@ import Form from "../Form/Form"
 
 function Cart() {
     
-    const { cartList, vaciarCarrito, deleteItem, total, eliminarUno, sumarUno } = useCartContext()
+    const { cartList, vaciarCarrito, deleteItem, total, eliminarUno, sumarUno, cantidadTotal } = useCartContext()
     const [condicional, setCondicional] = useState(false);
     const [dataForm, setDataForm] = useState({
         email:'',
         name:'',
         phone:''
     })
-    const realizarCompra = async (e) => {
-        e.preventDefault()
+    const realizarCompra = async () => {
+        
         let orden = {}
 
         orden.buyer = dataForm
@@ -27,8 +27,8 @@ function Cart() {
             const id = cartItem.id;
             const nombre = cartItem.name;
             const precio = cartItem.price * cartItem.cant;
-
-            return {id,nombre,precio}
+            const cantidad = cartItem.cant
+            return {id,nombre,precio,cantidad}
         })
         //guardar orden
         const db = getFirestore()
@@ -47,13 +47,16 @@ function Cart() {
         
         await getDocs(queryActualizarStock)
         .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
-            stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad
+            stock: (res.data().stock) - (cartList.find(item => item.id === res.id).cantidad)
             })
         ))
         .catch(err => console.log(err))
         .finally(() => console.log('stock actualizado'))
+
+        batch.commit();
+
+        vaciarCarrito();
         
-        batch.commit()
         
 
 

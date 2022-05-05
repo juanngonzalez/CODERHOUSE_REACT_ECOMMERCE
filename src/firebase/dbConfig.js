@@ -12,6 +12,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const getFireStoreApp = () => {
-    return app
+  return app
 }
     

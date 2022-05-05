@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 function Form({realizarCompra, handleChange, dataForm}) {
   return (
@@ -26,9 +27,13 @@ function Form({realizarCompra, handleChange, dataForm}) {
             placeholder="email"
             value={dataForm.email}
         />
+        
         <div className="centrado">
+            <Link to ='/'>
             <Button className="agregar" style={{border:'solid 1px black'}} onClick={realizarCompra}>COMPRAR</Button>
+            </Link>
         </div>
+        
     </form>
     </div>
   );
